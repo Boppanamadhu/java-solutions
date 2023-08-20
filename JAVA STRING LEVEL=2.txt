@@ -1,0 +1,193 @@
+Q1):
+Write a java program to check two strings are anagrams or not?
+
+testcase1:
+
+in1:MotherinLaw
+
+in2:HitlarWomeN
+
+op:Anagrams
+
+in1:fasts
+
+in2:sefts
+
+op:Not Anagrams
+
+ANSWER:
+import java.util.*;
+class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+        s1=s1.replaceAll(" ","");
+        s2=s2.replaceAll(" ","");
+        if(s1.length()==s1.length())
+        {
+            s1=s1.toLowerCase();
+            s2=s2.toLowerCase();
+            char c1[]=s1.toCharArray();
+            char c2[]=s2.toCharArray();
+            Arrays.sort(c1);
+            Arrays.sort(c2);
+            if(Arrays.equals(c1,c2))
+             System.out.print("Anagrams");
+             else
+             System.out.print("Not Anagrams");
+        }
+        else
+         System.out.print("Not Anagrams");
+        
+    }
+}
+Q2):
+Write a java programs to print all possible anagrams in this way?
+
+Testcases:
+
+in1:hai iam adam from mia going to aih
+
+op:
+
+hai : aih
+
+iam : mia
+
+in1: hello everyone i hope all are doing well
+
+op: 
+
+No Anagrams Found
+
+ANSWER:
+import java.util.*;
+class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        String w[]=s1.split(" ");
+       int c=0;
+        for(int i=0;i<w.length;i++)
+        {
+            for(int j=i+1;j<w.length;j++)
+            {
+                if(w[i].length()==w[j].length())
+                {
+                    String st=w[i];
+                    String st1=w[j];
+                    st=st.toLowerCase();
+                    st1=st1.toLowerCase();
+                    char c1[]=st.toCharArray();
+                    char c2[]=st1.toCharArray();
+                    Arrays.sort(c1);
+                    Arrays.sort(c2);
+                    if(Arrays.equals(c1,c2))
+                    {
+                        System.out.println(st+" : "+st1);
+                        c++;
+                    }
+                }
+            }
+        }
+        if(c==0)
+        {
+            System.out.print("No Anagrams Found");
+        }
+        
+        
+    }
+}
+Q3):
+Write a java program to check given String is pangram or not?
+
+TestCases:
+
+in1: the Quick brown fox jumps over a lazY dog
+
+op: Pangram
+
+in1:abc de f ghi klmn op q r st uvw xyz
+
+op: Not Pangram
+
+ANSWER:
+import java.util.*;
+class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        s=s.replaceAll(" ","");
+        s=s.toLowerCase();
+        String st="";
+        for(char i='a';i<='z';i++)
+        {
+            if(s.indexOf(i)!=-1)
+            {
+                st=st+i;
+            }
+        }
+        if(st.length()==26)
+        System.out.println("Pangram");
+        else
+        System.out.println("Not Pangram");
+        
+    }
+}
+Q4):
+Given two strings s1 and s2, write a snippet to check whether s2 is a rotation of s1. Strings may contain duplicates.
+
+Examples:
+
+i/p:
+
+String1 : ABCD
+
+String2 : CDAB
+
+o/p : True
+
+String s1 is rotation of s2.
+
+i/p:
+
+String1 : ABAD
+
+String2 : ADAB
+
+o/p: True
+
+ANSWER:
+import java.util.*;
+class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+        boolean result=isRotation(s1,s2);
+        System.out.println(result);
+    }
+    public static boolean isRotation(String s1,String s2)
+    {
+        String s3=s1+s2;
+        if(s1.length()!=s2.length())
+        return false;
+        else
+        {
+            if(s3.contains(s1))
+            return true;
+            else
+            return false;
+        }
+     
+}
+}

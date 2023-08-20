@@ -1,0 +1,117 @@
+java strings level 2.1
+
+import java.util.*;
+public class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        s=s.toLowerCase();
+        String ans = smalleststring(s);
+        System.out.println((ans.equals("") || ans==null || ans.length()==0)?"Empty string ":ans);
+        
+    }
+    static String smalleststring(String s)
+    {
+        int len = s.length();
+        int Repeatedindex = -1;
+        boolean Repeated=false;
+        for(int i = 0;i<len-1;i++)
+        {
+            if(s.charAt(i)==s.charAt(i+1))
+            {
+                Repeatedindex=i;
+                Repeated = true;
+                break;
+            }
+        }
+        if(Repeated)
+        {
+            return smalleststring(s.substring(0,Repeatedindex)+s.substring(Repeatedindex+2,len));
+        }
+        else
+        {
+            return s;
+        }
+    }
+}
+
+-----------------------------------------------------------
+import java.util.*;
+public class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int k = sc.nextInt();
+        int shift = k%26;
+        char text[] = s.toCharArray();
+        for(int i = 0;i<text.length;i++)
+        {
+            if(text[i]>=65 && text[1]<=90)
+            {
+                if((text[i]+shift)>90)
+                {
+                    text[i]+=shift-26;
+                }
+                else
+                {
+                    text[i]+=shift;
+                }
+            }
+            if(text[i]>=97 && text[1]<=122)
+            {
+                if((text[i]+shift)>122)
+                {
+                    text[i]+=shift-26;
+                }
+                else
+                {
+                    text[i]+=shift;
+                }
+            }
+            
+        }
+        System.out.print(String.valueOf(text));
+        
+    }
+}
+----------------------------------------------------------------
+import java.util.*;
+public class prog
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        boolean b[] = new boolean[26];
+        boolean flag = false;
+        for(char c:s1.toCharArray())
+        {
+            if(c>='a' && c<='z')
+            {
+                b[c-'a']=true;
+            }
+            for(char c:s2.toCharArray())
+            {
+                if(c>='a' && c<='z' && b[c-'a'])
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+            {
+                System.out.println("Yes");
+            }
+            else
+            {
+                System.out.println("No");
+            }
+        }
+        
+    }
+}

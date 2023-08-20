@@ -1,0 +1,255 @@
+4))
+import java.util.*;
+class prog{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int n=in.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=in.nextInt();
+        }
+        int max=a[n-1];
+        for(int i=n-2;i>=0;i--){
+            if(a[i]>max){
+                max=a[i];
+                System.out.print(max+" ");
+            }
+        }
+    }
+}
+
+5))
+import java.util.*;
+class prog{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int n=in.nextInt();
+        int a[]=new int[n];
+         int even[]=new int[n];
+         int odd[]=new int[n];
+         int ev=0, od=0;
+        for(int i=0;i<n;i++){
+            a[i]=in.nextInt();
+            if(a[i]%2!=0){
+                odd[od]=a[i];
+                od++;
+            }
+            else{
+                even[ev]=a[i];
+                ev++;
+            }
+            }
+            if(od==0){
+                System.out.println(od);
+            }
+            else{
+                for(int i=0;i<od;i++){
+                    System.out.print(odd[i]+" ");
+                }
+                   System.out.println();
+            }
+            if(ev==0){
+                System.out.println(ev);
+            }
+            else{
+                for(int i=0;i<ev;i++){
+                    System.out.print(even[i]+" "); 
+            }
+            }
+    }
+}
+
+6))
+import java.util.*;
+class prog{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int n1=in.nextInt();
+        int a[]=new int[n1];
+        for(int i=0;i<n1;i++){
+            a[i]=in.nextInt();
+        }
+        int n2=in.nextInt();
+        int b[]=new int[n2];
+        for(int j=0;j<n2;j++){
+          b[j]=in.nextInt();
+        }
+        int c[]=new int[n1+n2];
+        for(int i=0;i<n1;i++){
+            c[i]=a[i];
+        }
+        for(int i=n1,j=0;i<(n1+n2)&&j<n2;i++,j++){
+            c[i]=b[j];
+        }
+        for(int i=0;i<n1+n2;i++){
+            System.out.print(c[i]+" ");
+        }
+    }
+}
+
+7))
+import java.util.*;
+class prog{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int n=in.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=in.nextInt();
+        }
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(a[i]==a[j]){
+                    System.out.print(a[i]+" ");
+                }
+            }
+        }
+    }
+}
+
+8))
+import java.util.*;
+class prog{
+    public static void main(String args[]){
+        Scanner in = new Scanner(System.in);
+        int n=in.nextInt();
+        int a[]=new int[n+1];
+        for(int i=0;i<n;i++){
+            a[i]=in.nextInt();
+        }
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;){
+                if(a[i]==a[j]){
+                    for(int k=j;k<n;k++){
+                        a[k]=a[k+1];;
+                    }
+                    n--;
+                }
+                else{
+                    j++;
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            System.out.print(a[i]+" ");
+        }
+    }
+}
+
+1))
+import java.util.*;
+class prog
+{
+  public static void main(String args[])
+   {
+      Scanner ss = new Scanner(System.in);
+      int m = ss.nextInt();
+      int ar[] = new int[m];
+      for(int i=0;i<m;i++)
+      {
+          ar[i]=ss.nextInt();
+      }
+      for(int i=0;i<m;i++)
+      {
+          System.out.print(ar[i]+" ");
+      }
+      
+   }
+}
+
+2))
+import java.util.*;
+
+class prog
+{
+    public static void main(String args[])
+    {
+        Scanner ss = new Scanner(System.in);
+        int m = ss.nextInt();
+        int ar[] = new int[m];
+        for(int z=0;z<m;z++)
+        {
+            ar[z]=ss.nextInt();
+        }
+        int max = ar[0];
+        for(int z=1;z<m;z++)
+        {
+            if(ar[z]>max)
+            {
+                max=ar[z];
+            }
+        }
+        System.out.print(max);
+    }
+}
+
+3))
+import java.util.*;
+
+class prog
+{
+    public static void main(String args[])
+    {
+        Scanner ss = new Scanner(System.in);
+        int m = ss.nextInt();
+        int ar[] = new int[m];
+        for(int z=0;z<m;z++)
+        {
+            ar[z]=ss.nextInt();
+        }
+        Arrays.sort(ar);
+        int smax = 0;
+        int flag=0;
+        for(int z=m-2;z>=0;z--)
+        {
+            if(ar[z] != ar[m-1])
+            {
+                smax=ar[z];
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0)
+         System.out.println("No Second Max");
+        else
+         System.out.println(smax);
+    }
+}
+
+8))
+import java.util.*;
+
+class prog
+{
+    public static void main(String args[])
+    {
+        Scanner ss = new Scanner(System.in);
+        int n = ss.nextInt();
+        int ar[] = new int[n+1];
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=ss.nextInt();
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;)
+            {
+                if(ar[i]==ar[j])
+                {
+                    for(int k=j;k<n;k++)
+                    {
+                        ar[k]=ar[k+1];
+                    }
+                    n--;
+                }else
+                {
+                    j++;
+                }
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(ar[i]+" ");
+        }
+    }
+}

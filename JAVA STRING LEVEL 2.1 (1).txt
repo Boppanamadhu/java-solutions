@@ -1,0 +1,167 @@
+Q1):
+Reduce the string by doing some sequence of operations on the given string,in each operation he selects a pair of adjacent lowercase letters that match, and he deletes them.For instance, the string aab could be shortened to b in one operation.
+
+input1: aaabccddd
+
+Output1:abd
+
+input1: aa
+
+Output1:Empty string
+
+ANSWER:
+import java.util.*;
+class prog
+{
+public static void main(String[] args)
+{
+Scanner sc=new Scanner(System.in);
+String s=sc.nextLine();
+s=s.toLowerCase();
+String ans=smallstring(s);
+System.out.print((ans.equals("")||ans==null)?"Empty string":ans);
+}
+static String smallstring(String s)
+{
+int len=s.length();
+int RepeatedIndex=-1;
+boolean Repeated=false;
+for(int i=0;i<len-1;i++)
+{
+if(s.charAt(i)==s.charAt(i+1))
+{
+RepeatedIndex=i;
+Repeated=true;
+break;
+
+}
+}
+if(Repeated)
+{
+return smallstring(s.substring(0,RepeatedIndex)+s.substring(RepeatedIndex+2));
+}
+else
+{
+return s;
+}
+}
+}
+
+Q2):
+Rotate the each character in a given string by k letters.for example string is abc and k=1 then resultant string will be bcd . If the shift takes you past the end of the alphabet, just rotate back to the front of the alphabet.
+
+Input1:string = middleoutz , k=2
+
+Output1:okffngqwvb
+
+Input1:String = helloworld, k=5
+
+output1:mjqqtbtwqi
+
+input1:String = abc k=1
+
+output:bcd
+
+ANSWER:
+
+import java.util.*;
+class prog
+{
+public static void main(String[] args)
+{
+Scanner sc=new Scanner(System.in);
+String s=sc.nextLine();
+char text[]=s.toCharArray();
+int k=sc.nextInt();
+int shift=k%26;
+for(int i=0;i<text.length;i++)
+{
+if(text[i]>=65 && text[i]<=90)
+{
+if((text[i]+shift)>90)
+{
+text[i]+=shift-26;
+}
+else
+{
+text[i]+=shift;
+}
+}
+if(text[i]>=97 && text[i]<=122)
+{
+if((text[i]+shift)>122)
+{
+text[i]+=shift-26;
+}
+else
+{
+text[i]+=shift;
+}
+}
+}
+System.out.println(String.valueOf(text));
+}
+}
+
+Q3):
+Remove first one or two occurrences of A from the given string,and remove adjacent A’s when they occurred with first A.
+
+Input1:ABCD
+
+Output: BCD
+
+Input2:AACD
+
+Output2:CD
+
+ANSWER:
+
+Q4):
+Check whether the two strings are sharing at least one common character or not .
+
+Input1:String1=hello 
+
+String2=world
+
+Output1: Yes
+
+Input2:String1=hi 
+
+String2=world
+
+Output2: No
+
+ANSWER:
+
+import java.util.*;
+class prog
+{
+public static void main(String[] args)
+    {  
+    Scanner sc=new Scanner(System.in);
+    String s1=sc.nextLine();
+    String s2=sc.nextLine();
+    boolean flag= false;
+    boolean b[]=new boolean[26];
+    for(char c:s1.toCharArray())
+        {
+            if(c>='a' && c<='z')
+                {
+                b[c-'a']=true;
+                }
+        }
+    for(char c:s2.toCharArray())
+        {
+            if(c>='a'&& c<='z'&& b[c-'a'])
+                {
+                flag=true;
+                break;
+                }
+        }
+    if(flag==true) 
+    System.out.println("Yes");
+    else
+    System.out.println("No");
+    }
+}
+
